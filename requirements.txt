@@ -1,0 +1,9 @@
+django
+gunicorn
+wagtail
+psycopg2
+whitenoise
+dj_database_url
+django-storages
+boto3
+botocore
