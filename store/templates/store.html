@@ -1,9 +1,8 @@
 {% extends 'main.html' %}
 {% load static %}
 {% block content %}
-    <h3 class="vidtext">Store</h3>
-    <hr class="specialhr"></hr>
-    <h2 class="vidsubtext">Welcome to our store, check out our amazing repertoire of items</h2>
+    <h3>Store</h3>
+    <h2>Welcome to our store, check out our amazing repertoire of items</h2>
 
     <div class="row">
         {% for product in products %}
@@ -12,7 +11,7 @@
             <div class="box-element product">
                 <h6><strong>{{ product.name }}</strong></h6>
                 <hr>
-                <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
                 <a class="btn btn-outline-success" href="#">View</a>
                 <h4 style="display: inline-block;float: right"><strong>${{ product.price|floatformat:2 }}</strong></h4>
             </div>
