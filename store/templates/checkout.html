@@ -69,7 +69,7 @@
             {% endfor %}
 
             <h5>Items: {{order.get_cart_items }}</h5>
-            <h5>Total: ${{ order.get_cart_total|floatformat:2 }}</h5>
+            <h5>Total: ${{ order.get_cart_total }}</h5>
         </div>
     </div>
 </div>
@@ -94,8 +94,8 @@
 
     var form = document.getElementById('form')
 
-    csrftoken = forrm.getElementsByTagName("input")[0].value
-    console.log('Newtoken:', form.getElementByTagName("input")[0].value)
+    csrftoken = form.getElementsByTagName("input")[0].value
+    console.log('Newtoken:', form.getElementsByTagName("input")[0].value)
 
     form.addEventListener('submit', function(e){
         e.preventDefault()
@@ -149,6 +149,10 @@
         .then((data) => {
             console.log('Success:', data);
             alert('Transaction completed');
+
+        cart = {}
+        document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/; SameSite=Lax"
+
             window.location.href = "{% url 'store' %}"
 
         })
