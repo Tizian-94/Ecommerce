@@ -3,6 +3,5 @@
 *.swp
 /venv/
 /env/
-/static/
 /media/
 .env
