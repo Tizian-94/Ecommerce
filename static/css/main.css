@@ -1,14 +1,36 @@
-body{
+/* body{
 	background-color: hsl(0, 0%, 98%);
+} */
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+body.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+}
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 h1,h2,h3,h4,h5,h6{
 	color:hsl(0, 0%, 30%);
 }
 
+.dark-mode h1,.dark-mode h2,.dark-mode h3,.dark-mode h4,.dark-mode h5,.dark-mode h6{
+	color: #ffffff;
+}
 .box-element{
 	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
 	background-color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+}
+.dark-mode .box-element{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #000000;
 	border-radius: 4px;
 	padding: 10px;
 }
@@ -25,8 +47,9 @@ h1,h2,h3,h4,h5,h6{
 	border-radius: 0 0 4px 4px;
 }
 
-.bg-dark{
-	background-color: #4f868c!important;
+.dark-mode .product{
+	border-radius: 0 0 4px 4px;
+	background-color: var(--background-color);
 }
 
 #cart-icon{
@@ -96,4 +119,23 @@ h1,h2,h3,h4,h5,h6{
 
 .hidden{
 	display: none!important;
+}
+
+.dark-mode input:not(#form-button){
+	background-color: #495057;
+	color: #ffffff;
+}
+
+.dark-mode input::placeholder{
+	color: #ffffff;
+}
+
+.dark-mode .quantity{
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.dark-mode .modal-body, .dark-mode .modal-header,.dark-mode .modal-footer{
+	background-color: #000000;
+	color: #ffffff;
 }

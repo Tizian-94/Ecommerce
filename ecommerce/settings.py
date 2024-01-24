@@ -25,7 +25,7 @@ SECRET_KEY = 'z+ksf@)0d^qojbh4rnp4b1to$hq&*tt(3bs$gf(3i267g$k9ln'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://tizianglavina.pythonanywhere.com/']
+ALLOWED_HOSTS = ['tizianglavina.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -125,6 +125,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_URL = '/images/'
+MEDIA_URL = 'static/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')

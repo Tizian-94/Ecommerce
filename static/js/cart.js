@@ -61,3 +61,52 @@ function addCookieItem(productId, action){
 	
 	location.reload()
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    darkModeToggle.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+    });
+
+    const isDarkModeSaved = localStorage.getItem('darkMode');
+    if (isDarkModeSaved === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Handle view button click
+    const viewButtons = document.querySelectorAll('.view-btn');
+    viewButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        const productName = this.getAttribute('data-name');
+        const productId = this.getAttribute('data-id');
+		const descriptionElement = this.getAttribute('data-description');
+        const modalTitle = document.getElementById('productModalLabel');
+        const modalBody = document.querySelector('#productModal .modal-body');
+
+        // Set modal title and body content
+        modalTitle.innerText = productName;
+		descriptionElement.innerText = descriptionElement;
+        modalBody.innerHTML = `
+			<h6><strong>${productName}</strong></h6>
+			<hr>
+			<p>${descriptionElement}</p>
+			<button data-product="${productId}" data-action="add" class="btn btn-primary rounded add-btn update-cart">Add to Cart</button>
+		`;
+      });
+    });
+
+    // Handle close button inside the modal
+    const closeButton = document.getElementById('closebtn');
+    if (closeButton) {
+      closeButton.addEventListener('click', function () {
+        // Close the modal
+        $('#productModal').modal('hide');
+      });
+    }
+  });
